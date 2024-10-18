@@ -1,0 +1,90 @@
+# poornima-crt-2nd-year
+
+package com.java.crt.project;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LearningManagementSystem extends JFrame {
+    private JMenuBar menuBar;
+    private JMenu courseMenu, studentMenu;
+    private JMenuItem addCourseItem, viewCoursesItem, addStudentItem, viewStudentsItem;
+
+    public LearningManagementSystem() {
+        setTitle("Learning Management System");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Create menu bar
+        menuBar = new JMenuBar();
+
+        // Create course menu
+        courseMenu = new JMenu("Courses");
+        addCourseItem = new JMenuItem("Add Course");
+        viewCoursesItem = new JMenuItem("View Courses");
+        
+        courseMenu.add(addCourseItem);
+        courseMenu.add(viewCoursesItem);
+
+        // Create student menu
+        studentMenu = new JMenu("Students");
+        addStudentItem = new JMenuItem("Add Student");
+        viewStudentsItem = new JMenuItem("View Students");
+        
+        studentMenu.add(addStudentItem);
+        studentMenu.add(viewStudentsItem);
+
+        // Add menus to menu bar
+        menuBar.add(courseMenu);
+        menuBar.add(studentMenu);
+        setJMenuBar(menuBar);
+
+        // Add action listeners
+        addCourseItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logic to add a course
+                String courseName = JOptionPane.showInputDialog("Enter Course Name:");
+                if (courseName != null) {
+                    JOptionPane.showMessageDialog(null, "Course '" + courseName + "' added successfully!");
+                }
+            }
+        });
+
+        viewCoursesItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logic to view courses
+                JOptionPane.showMessageDialog(null, "Displaying all courses... (Placeholder)");
+            }
+        });
+
+        addStudentItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logic to add a student
+                String studentName = JOptionPane.showInputDialog("Enter Student Name:");
+                if (studentName != null) {
+                    JOptionPane.showMessageDialog(null, "Student '" + studentName + "' added successfully!");
+                }
+            }
+        });
+
+        viewStudentsItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logic to view students
+                JOptionPane.showMessageDialog(null, "Displaying all students... (Placeholder)");
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            LearningManagementSystem lms = new LearningManagementSystem();
+            lms.setVisible(true);
+        });
+    }
+}
